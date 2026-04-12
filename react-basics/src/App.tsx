@@ -1,12 +1,36 @@
-import PokemonList from "./components/pokemonList";
-import Search from "./components/search";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Todo from "./pages/todo";
+import Pokemon from "./pages/pokemon";
+import PokemonDetails from "./pages/pokemonDetails";
+import Layout from "./layout";
+
+
+const routes = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: "pokemon",
+        element:<Pokemon/> ,
+      },
+      {
+        path: 'pokemon/:id',
+        element: <PokemonDetails />
+      },
+      {
+        path: "todo",
+        element: <Todo />,
+      }
+    ]
+  },
+  
+])
+
+
 
 export default function App() {
-  return <div className="flex m-2 justify-center items-center flex-col">
-    <h2 className="text-3xl font-bold">Pokemons</h2>
-    <Search />
-    <PokemonList />
-  </div>
+  return <RouterProvider router={routes} />
 } 
 
 
