@@ -1,12 +1,11 @@
-import { useContext } from "react"
-import { TodoContext } from "../context/TodoContext"
+import { useDispatch } from "react-redux";
+import { toggleTodo } from "../store/todoSlice";
 
 export const TodoItem = ({ todo }: { todo: any }) => {
 
 
-    const { toggleTodo : handleToggleTodo } = useContext(TodoContext)
-    
-    
+    const dispatch = useDispatch();
+
     return <li key={todo.id} style={{
         textDecoration: todo.completed ? "line-through" : "none",
         opacity: todo.completed ? 0.5 : 1,
@@ -14,9 +13,9 @@ export const TodoItem = ({ todo }: { todo: any }) => {
         <input
             type="checkbox"
             checked={todo.completed}
-            onChange={() => handleToggleTodo(todo.id)}
+            onChange={() => dispatch(toggleTodo(todo.id))}
             className="mr-2"
         />
-        {todo.todo}
+        {todo.title}
     </li>
 }

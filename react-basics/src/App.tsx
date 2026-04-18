@@ -3,6 +3,8 @@ import Todo from "./pages/todo";
 import Pokemon from "./pages/pokemon";
 import PokemonDetails from "./pages/pokemonDetails";
 import Layout from "./layout";
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "./store";
 
 
 const routes = createBrowserRouter([
@@ -12,7 +14,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "pokemon",
-        element:<Pokemon/> ,
+        element: <Pokemon />,
       },
       {
         path: 'pokemon/:id',
@@ -24,14 +26,17 @@ const routes = createBrowserRouter([
       }
     ]
   },
-  
+
 ])
 
 
 
 export default function App() {
-  return <RouterProvider router={routes} />
-} 
+
+  return <ReduxProvider store={store}>
+    <RouterProvider router={routes} />
+  </ReduxProvider>
+}
 
 
 

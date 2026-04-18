@@ -1,14 +1,15 @@
-import { useContext, useState } from "react";
-import { TodoContext } from "../context/TodoContext";
+import {  useState } from "react";
+import { addTodo } from "../store/todoSlice";
+import { useDispatch } from "react-redux";
 
 export function TodoInput() {
     const [todo, setTodo] = useState<string>("");
 
-    const { addTodo:handleAddTodo} = useContext(TodoContext)
+    const dispatch = useDispatch();
+
 
     const handleClick = () => {
-        const isTodoCreated = handleAddTodo(todo);
-        if(!isTodoCreated) return;
+        dispatch(addTodo(todo));
         setTodo("");
     }
 
