@@ -1,0 +1,6 @@
+{"level":"info","message":"1"}
+{"level":"debug","message":{"id":1,"name":"John Doe"}}
+undefined
+undefined
+2026-04-26T05:04:52.333Z [32minfo[39m: 1
+2026-04-26T05:04:52.335Z [34mdebug[39m: [object Object]

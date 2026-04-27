@@ -1,4 +1,6 @@
 const {Router} = require('express');
+const logger = require('../utils/logger');
+const { NotFoundError } = require('../utils/http_exceptions');
 
 const router = Router();
 
@@ -9,7 +11,7 @@ const users = [
 ];
 
 
-router.get("/", (req,res)=> {
+router.get("/", (req)=> {
     res.send(users);
 })
 
@@ -17,13 +19,14 @@ router.get("/", (req,res)=> {
 router.get("/:id", (req,res)=> {
 
     const {id} = req.params;
+    logger.info(id);
     const user = users.find(user=> user.id === Number(id) );
+    logger.debug(user);
     if(!user){
-        res.status(404).send(`User with id ${id} not found`);
-        return;
+        throw new NotFoundError("User not found");
     }
-    res.send(user);
-});
+    res.send(user); 
+}); 
 
 router.post("/", (req,res)=> {
     console.log(req.body);
