@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "$2b$11$X8hx7dpbC.xvpFN3ApN5zud/gZgIf4R2KPH9AO1pRRxL1noob2qO6"
+  },
+  {
+    "id": "d47ebb3e-1169-430e-a504-00b53fdd61f8",
+    "name": "Shikhar singh",
+    "email": "shikhar@gmail.com",
+    "password": "$2b$11$Cr3i25SB/PgeGsDgXlIkDO7xyLO7ytQq4NNbIxa2FKC7UujUf6I8G"
+  },
+  {
+    "id": "ef17fdfd-4e69-4092-bbb0-a11eb8e920af",
+    "name": "Shikhar singh",
+    "email": "shikhar123@gmail.com",
+    "password": "$2b$11$3sFAguvP1IXonifOHPfRMOEBVsMeFJnu6clUs8aHgbMwA.MQB5yBW"
+  }
+]
